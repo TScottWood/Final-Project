@@ -4,8 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css"/>
+    <script src="https://kit.fontawesome.com/5455c71dc9.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    My name is Scott
+  <!-- Navigation Bar -->
+  <body id="currencies__body">
+    <section>
+      <nav>
+        <div class="nav__container">
+          <div class="logo-container">
+            <img class="logo" src="assets/dreamstime_l_14051356.jpg" alt="" />
+            <p class="logo-text">The<br>Great<br>Exchange</p>
+          </div>
+          <ul class="nav__links">
+            <li><a href="./index.html" class="nav__link">Home</a></li>
+            <li><a href="#" class="nav__link">Contact</a></li>
+            <li><a href="#" class="nav__link nav__link-">About</a></li>
+          </ul>
+
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu__backdrop" style="visibility: hidden">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fas fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+              </li>
+              <li class="menu__list">
+                <a href="#features" class="menu__link" onclick="closeMenu()"
+                  >Books</a
+                >
+              </li>
+              <li class="menu__list">
+                <a class="menu__link no-cursor" onclick="closeMenu()"
+                  >Contacts</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <header>
+        <div class="header__container">
+            <div class="header__description">
+                <h1>All the Exchange Rates<br>You Need for Your Travel in One Place</h1>
+                <h2>Save Up To Six Real-Time <span class="purple">Currency Exchange Rates</span></h2>
+                <a href="#features">
+                <button class="btn">Currency Your Exchaning From:</button>
+                </a>
+            </div>
+            <figure class="header__img__wrapper">
+                <img src="./assets/Undraw_Books.svg">
+            </figure>
+    </header>
+    </section>
 </body>
 </html>
+
