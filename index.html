@@ -1,68 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles.css"/>
-    <script src="https://kit.fontawesome.com/5455c71dc9.js" crossorigin="anonymous"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Great Exchange</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <body id="currencies__body">
-    <section>
-      <nav>
-        <div class="nav__container">
-          <div class="logo-container">
-            <img class="logo" src="assets/dreamstime_l_14051356.jpg" alt="" />
-            <p class="logo-text">The<br>Great<br>Exchange</p>
-          </div>
-          <ul class="nav__links">
-            <li><a href="./index.html" class="nav__link">Home</a></li>
-            <li><a href="#" class="nav__link">Contact</a></li>
-            <li><a href="#" class="nav__link nav__link-">About</a></li>
-          </ul>
 
-          <button class="btn__menu" onclick="openMenu()">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="menu__backdrop" style="visibility: hidden">
-            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
-              <i class="fas fa-times"></i>
-            </button>
-            <ul class="menu__links">
-              <li class="menu__list">
-                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
-              </li>
-              <li class="menu__list">
-                <a href="#features" class="menu__link" onclick="closeMenu()"
-                  >Books</a
-                >
-              </li>
-              <li class="menu__list">
-                <a class="menu__link no-cursor" onclick="closeMenu()"
-                  >Contacts</a
-                >
-              </li>
-            </ul>
+  <!-- ADD THIS WRAPPER -->
+  <div class="page-wrapper">
+
+    <header class="header-row">
+      <!-- NAVIGATION (LEFT) -->
+      <div class="nav-section">
+        <ul class="nav__links">
+          <li><a href="#" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" class="nav__link"><i class="fas fa-phone"></i> Contact</a></li>
+          <li><a href="#" class="nav__link"><i class="fas fa-info-circle"></i> About</a></li>
+        </ul>
+      </div>
+      <!-- LOGO SECTION (RIGHT) -->
+      <div class="logo-section">
+        <div class="logo-container">
+          <div class="logo-text">
+            <span class="word-the">The</span>
+            <span class="word-great">Great</span>
+            <span class="word-exchange">Exchange</span>
           </div>
+          <img src="assets/dreamstime_l_14051356.jpg" class="logo" alt="The Great Exchange Logo">
         </div>
-      </nav>
-      <header>
-        <div class="header__container">
-            <div class="header__description">
-                <h1>All the Exchange Rates<br>You Need for Your Travel in One Place</h1>
-                <h2>Save Up To Six Real-Time <span class="purple">Currency Exchange Rates</span></h2>
-                <a href="#features">
-                <button class="btn">Currency Your Exchaning From:</button>
-                </a>
-            </div>
-            <figure class="header__img__wrapper">
-                <img src="./assets/Undraw_Books.svg">
-            </figure>
+      </div>
     </header>
-    </section>
+
+    <main class="main-content">
+      <h2>All the Exchange Rates You Need for Your Travel in One Place!</h2>
+      <p>Save up to six real-time currency exchange rates.</p>
+    </main>
+
+  </div> <!-- END WRAPPER -->
+
 </body>
 </html>
-
