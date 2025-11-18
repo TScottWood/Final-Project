@@ -26,6 +26,20 @@ body {
   align-items: stretch;
   min-height: 220px;
   width: 100%;
+  background: rgba(57, 214, 25, 0.1);
+  border-bottom: 1px solid rgba(57, 214, 25, 0.2);
+  position: relative;
+}
+
+.header-row::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: inherit;
+  border-radius: 0 0 30px 30px;
 }
 
 .logo-image-section {
@@ -128,14 +142,21 @@ body {
 
 /* ====================== CURRENCY CONVERTER ====================== */
 
-/* Side-by-side layout for the two top boxes */
+/* Full-width container matching the header exactly */
+.top-controls-fullwidth {
+  max-width: 1400px;
+  margin: 3rem auto 0;
+  padding: 0 20px;
+}
+
+/* Two boxes fill the full width, side-by-side */
 .global-controls {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;     /* perfect bottom alignment */
-  gap: 20px;                 /* space between the two boxes */
-  margin: 3rem 0 2rem;
-  flex-wrap: nowrap;         /* keeps them side-by-side */
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  gap: 40px;
+  margin-bottom: 2rem;
 }
 
 .global-amount,
@@ -143,6 +164,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* NEW: Left box small, right box takes the rest of the space */
+.global-amount {
+  flex: 0 1 200px;   /* doesn't grow much, max ~200px */
+}
+
+.global-from {
+  flex: 1;           /* grows to fill all remaining space */
+  max-width: none;   /* removes any previous limit */
 }
 
 .global-amount label,
@@ -153,7 +184,6 @@ body {
   font-size: 1.25rem;
 }
 
-/* Both boxes: same height, auto width based on content */
 #global-amount,
 .global-select {
   height: 72px;
@@ -165,33 +195,17 @@ body {
   background: white;
   box-sizing: border-box;
   line-height: 68px;
-  width: auto;               /* auto-size to content */
-  min-width: 120px;
-  white-space: nowrap;
+  width: 100%;
 }
 
-/* Custom arrow for the dropdown */
 .global-select {
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2339d619'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24  24' fill='%2339d619'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 20px center;
   background-size: 22px;
   padding-right: 60px !important;
   cursor: pointer;
-}
-
-/* Mobile: stack them when screen is too narrow */
-@media (max-width: 720px) {
-  .global-controls {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  #global-amount,
-  .global-select {
-    width: 280px;
-  }
 }
 
 .global-label {
@@ -202,12 +216,16 @@ body {
   margin: 0.5rem 0 2.5rem;
 }
 
-/* 2×3 Grid */
+/* Make the 3-column grid exactly match the header / page-wrapper width */
 .converters-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  margin-top: 2rem;
+  margin: 2rem auto 0;        /* centers it */
+  max-width: 1400px;          /* ← same as .page-wrapper */
+  padding: 0 20px;            /* ← same left/right padding as header */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1000px) {
@@ -216,6 +234,13 @@ body {
 
 @media (max-width: 720px) {
   .converters-grid { grid-template-columns: 1fr; }
+  .global-controls {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .global-amount, .global-from {
+    max-width: 100%;
+  }
 }
 
 .converter-card {
@@ -285,4 +310,11 @@ body {
   .logo { max-height: 120px; }
   .logo-text-section { padding: 1.5rem; justify-content: center; }
   .logo-text { text-align: center; }
+}
+
+/* ===== GUARANTEED DARK BLUE ARROW CURSOR ===== */
+*, *::before, *::after,
+input, select, textarea, button, a,
+[onclick], [role="button"], [tabindex] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23000088" d="M4 4l20 12L4 28V4z"/></svg>') 4 4, auto !important;
 }

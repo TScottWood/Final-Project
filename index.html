@@ -34,18 +34,20 @@
   <h2>All the Exchange Rates You Need for Your Travel in One Place!</h2>
   <p>Save up to six real-time currency exchange rates.</p>
 
-  <div class="global-controls">
-    <div class="global-amount">
-      <label for="global-amount">How many<br>I want to exchange: </label>
-      <input type="number" id="global-amount" class="amount" value="1" min="0" step="any">
+  <!-- FULL-WIDTH TOP CONTROLS – matches header exactly -->
+  <div class="top-controls-fullwidth">
+    <div class="global-controls">
+      <div class="global-amount">
+        <label for="global-amount">I have</label>
+        <input type="number" id="global-amount" class="amount" value="1" min="0" step="any">
+      </div>
+      <div class="global-from">
+        <label for="global-from">From</label>
+        <select id="global-from" class="currency-select global-select"></select>
+      </div>
     </div>
-    <div class="global-from">
-      <label for="global-from">From what country?</label>
-      <select id="global-from" class="currency-select global-select"></select>
-    </div>
+    <p class="global-label">I want to buy →</p>
   </div>
-
-  <p class="global-label">I want to buy →</p>
 
   <div class="converters-grid">
     <div class="converter-card">
