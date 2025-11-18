@@ -38,7 +38,7 @@ body {
 }
 
 .logo {
-  max-height: 180px;
+  max-height: 230px;
   width: auto;
   object-fit: contain;
 }
@@ -48,7 +48,7 @@ body {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 2rem 2rem 2rem 0;   /* no left padding so it's flush against the logo */
+  padding: 2rem 2rem 1rem 0;   /* no left padding so it's flush against the logo */
 }
 
 .logo-text {
@@ -66,8 +66,7 @@ body {
 /* Right – Horizontal Navigation */
 .nav-section {
   flex: 0 0 280px;             /* a bit wider for horizontal links */
-
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,21 +87,25 @@ body {
   padding: 12px 18px;
   text-decoration: none;
   color: #444;
+  background: transparent;          /* ← ADD THIS */
   font-weight: 500;
   font-size: 19px;
   border-radius: 10px;
-  transition: all 0.3s ease;
   white-space: nowrap;
+
+  /* Better: list the properties explicitly instead of "all" */
+  transition: background-color 0.3s ease,
+              color 0.3s ease;
 }
 
 .nav__link i {
   width: 20px;
   color: #777;
-  transition: color 0.3s;
+  transition: color 0.3s ease;   /* this one was already fine */
 }
 
 .nav__link:hover {
-  background: #e8f5e8;
+  background-color: #e8f5e8;   /* use background-color, not background */
   color: #39d619;
 }
 

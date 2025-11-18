@@ -1,3 +1,5 @@
+// currencies.js  ← Save this EXACT file (overwrite your old one)
+
 const currencies = [
     { code: "AED", name: "UAE Dirham", country: "United Arab Emirates" },
     { code: "AFN", name: "Afghan Afghani", country: "Afghanistan" },
@@ -159,4 +161,52 @@ const currencies = [
     { code: "YER", name: "Yemeni Rial", country: "Yemen" },
     { code: "ZAR", name: "South African Rand", country: "South Africa" },
     { code: "ZMW", name: "Zambian Kwacha", country: "Zambia" },
-    { code: "ZWL", name: "Zimbabwean Dollar", country: "Zimbabwe" }];
+    { code: "ZWL", name: "Zimbabwean Dollar", country: "Zimbabwe" }
+  ];
+  
+  // ★★★★★ THIS PART AUTOMATICALLY ADDS FLAGS — YOU DON'T HAVE TO TOUCH IT ★★★★★
+  const countryToFlag = {
+    "United Arab Emirates": "🇦🇪", "Afghanistan": "🇦🇫", "Albania": "🇦🇱", "Armenia": "🇦🇲",
+    "Netherlands Antilles": "🇦🇼", "Angola": "🇦🇴", "Argentina": "🇦🇷", "Australia": "🇦🇺",
+    "Aruba": "🇦🇼", "Azerbaijan": "🇦🇿", "Bosnia and Herzegovina": "🇧🇦", "Barbados": "🇧🇧",
+    "Bangladesh": "🇧🇩", "Bulgaria": "🇧🇬", "Bahrain": "🇧🇭", "Burundi": "🇧🇮",
+    "Bermuda": "🇧🇲", "Brunei": "🇧🇳", "Bolivia": "🇧🇴", "Brazil": "🇧🇷",
+    "Bahamas": "🇧🇸", "Bhutan": "🇧🇹", "Botswana": "🇧🇼", "Belarus": "🇧🇾",
+    "Belize": "🇧🇿", "Canada": "🇨🇦", "Democratic Republic of the Congo": "🇨🇩", "Switzerland": "🇨🇭",
+    "Chile": "🇨🇱", "China": "🇨🇳", "Colombia": "🇨🇴", "Costa Rica": "🇨🇷",
+    "Cuba": "🇨🇺", "Cape Verde": "🇨🇻", "Czech Republic": "🇨🇿", "Djibouti": "🇩🇯",
+    "Denmark": "🇩🇰", "Dominican Republic": "🇩🇴", "Algeria": "🇩🇿", "Egypt": "🇪🇬",
+    "Eritrea": "🇪🇷", "Ethiopia": "🇪🇹", "European Union": "🇪🇺", "Fiji": "🇫🇯",
+    "Falkland Islands": "🇫🇰", "Faroe Islands": "🇫🇴", "United Kingdom": "🇬🇧", "Georgia": "🇬🇪",
+    "Guernsey": "🇬🇬", "Ghana": "🇬🇭", "Gibraltar": "🇬🇮", "The Gambia": "🇬🇲", "Guinea": "🇬🇳",
+    "Guatemala": "🇬🇹", "Guyana": "🇬🇾", "Hong Kong": "🇭🇰", "Honduras": "🇭🇳",
+    "Croatia": "🇭🇷", "Haiti": "🇭🇹", "Hungary": "🇭🇺", "Indonesia": "🇮🇩",
+    "Israel": "🇮🇱", "Isle of Man": "🇮🇲", "India": "🇮🇳", "Iraq": "🇮🇶",
+    "Iran": "🇮🇷", "Iceland": "🇮🇸", "Jersey": "🇯🇪", "Jamaica": "🇯🇲",
+    "Jordan": "🇯🇴", "Japan": "🇯🇵", "Kenya": "🇰🇪", "Kyrgyzstan": "🇰🇬",
+    "Cambodia": "🇰🇭", "Kiribati": "🇰🇮", "Comoros": "🇰🇲", "South Korea": "🇰🇷",
+    "Kuwait": "🇰🇼", "Cayman Islands": "🇰🇾", "Kazakhstan": "🇰🇿", "Laos": "🇱🇦",
+    "Lebanon": "🇱🇧", "Sri Lanka": "🇱🇰", "Liberia": "🇱🇷", "Lesotho": "🇱🇸",
+    "Libya": "🇱🇾", "Morocco": "🇲🇦", "Moldova": "🇲🇩", "Madagascar": "🇲🇬",
+    "North Macedonia": "🇲🇰", "Myanmar": "🇲🇲", "Mongolia": "🇲🇳", "Macau": "🇲🇴",
+    "Mauritania": "🇲🇷", "Mauritius": "🇲🇺", "Maldives": "🇲🇻", "Malawi": "🇲🇼",
+    "Mexico": "🇲🇽", "Malaysia": "🇲🇾", "Mozambique": "🇲🇿", "Namibia": "🇳🇦",
+    "Nigeria": "🇳🇬", "Nicaragua": "🇳🇮", "Norway": "🇳🇴", "Nepal": "🇳🇵",
+    "New Zealand": "🇳🇿", "Oman": "🇴🇲", "Panama": "🇵🇦", "Peru": "🇵🇪",
+    "Papua New Guinea": "🇵🇬", "Philippines": "🇵🇭", "Pakistan": "🇵🇰", "Poland": "🇵🇱",
+    "Paraguay": "🇵🇾", "Qatar": "🇶🇦", "Romania": "🇷🇴", "Serbia": "🇷🇸",
+    "Russia": "🇷🇺", "Rwanda": "🇷🇼", "Saudi Arabia": "🇸🇦", "Solomon Islands": "🇸🇧",
+    "Seychelles": "🇸🇨", "Sudan": "🇸🇩", "Sweden": "🇸🇪", "Singapore": "🇸🇬",
+    "Saint Helena": "🇸🇭", "Sierra Leone": "🇸🇱", "Somalia": "🇸🇴", "Suriname": "🇸🇷",
+    "South Sudan": "🇸🇸", "São Tomé and Príncipe": "🇸🇹", "Syria": "🇸🇾", "Eswatini": "🇸🇿",
+    "Thailand": "🇹🇭", "Tajikistan": "🇹🇯", "Turkmenistan": "🇹🇲", "Tunisia": "🇹🇳",
+    "Tonga": "🇹🇴", "Turkey": "🇹🇷", "Trinidad and Tobago": "🇹🇹", "Tuvalu": "🇹🇻",
+    "Taiwan": "🇹🇼", "Tanzania": "🇹🇿", "Ukraine": "🇺🇦", "Uganda": "🇺🇬",
+    "United States": "🇺🇸", "Uruguay": "🇺🇾", "Uzbekistan": "🇺🇿", "Venezuela": "🇻🇪",
+    "Vietnam": "🇻🇳", "Vanuatu": "🇻🇺", "Samoa": "🇼🇸",
+    "Yemen": "🇾🇪", "South Africa": "🇿🇦", "Zambia": "🇿🇲", "Zimbabwe": "🇿🇼",
+    "CEMAC": "🇨🇲", "Organisation of Eastern Caribbean States": "🇱🇨", "CFA": "🇧🇯",
+    "Collectivités d'Outre-Mer": "🇵🇫", "International Monetary Fund": "🏳️"
+  };
+  
+  currencies.forEach(c => c.flag = countryToFlag[c.country] || "🏳️");
