@@ -1,49 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Great Exchange</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Great Exchange</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="page-wrapper">
 
-  <div class="page-wrapper">
+<header class="header-row">
+  <div class="logo-image-section">
+    <img src="assets/dreamstime_l_14051356.jpg" class="logo" alt="The Great Exchange Logo">
+  </div>
+  <div class="logo-text-section">
+    <div class="logo-text">
+      <span class="word-the">The</span>
+      <span class="word-great">Great</span>
+      <span class="word-exchange">Exchange</span>
+    </div>
+  </div>
+  <div class="nav-section">
+    <ul class="nav__links">
+      <li><a href="#" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#" class="nav__link"><i class="fas fa-phone"></i> About</a></li>
+      <li><a href="#" class="nav__link"><i class="fas fa-info-circle"></i> Contact</a></li>
+    </ul>
+  </div>
+</header>
 
-    <header class="header-row">
+<main class="main-content">
+  <h2>All the Exchange Rates You Need for Your Travel in One Place!</h2>
+  <p>Save up to six real-time currency exchange rates.</p>
 
-      <!-- LEFT: Logo Image -->
-      <div class="logo-image-section">
-        <img src="assets/dreamstime_l_14051356.jpg" class="logo" alt="The Great Exchange Logo">
-      </div>
+  <div class="global-controls">
+    <div class="global-amount">
+      <label for="global-amount">How many<br>I want to exchange: </label>
+      <input type="number" id="global-amount" class="amount" value="1" min="0" step="any">
+    </div>
+    <div class="global-from">
+      <label for="global-from">From what country?</label>
+      <select id="global-from" class="currency-select global-select"></select>
+    </div>
+  </div>
 
-      <!-- CENTER: Big Text -->
-      <div class="logo-text-section">
-        <div class="logo-text">
-          <span class="word-the">The</span>
-          <span class="word-great">Great</span>
-          <span class="word-exchange">Exchange</span>
-        </div>
-      </div>
+  <p class="global-label">I want to buy →</p>
 
-      <!-- RIGHT: Vertical Navigation -->
-      <div class="nav-section">
-        <ul class="nav__links">
-          <li><a href="#" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="#" class="nav__link"><i class="fas fa-phone"></i> About</a></li>
-          <li><a href="#" class="nav__link"><i class="fas fa-info-circle"></i> Contact</a></li>
-        </ul>
-      </div>
+  <div class="converters-grid">
+    <div class="converter-card">
+      <select class="to-currency currency-select big-title-select"></select>
+      <div class="result">—</div>
+    </div>
+    <div class="converter-card">
+      <select class="to-currency currency-select big-title-select"></select>
+      <div class="result">—</div>
+    </div>
+    <div class="converter-card">
+      <select class="to-currency currency-select big-title-select"></select>
+      <div class="result">—</div>
+    </div>
+    <div class="converter-card">
+      <select class="to-currency currency-select big-title-select"></select>
+      <div class="result">—</div>
+    </div>
+    <div class="converter-card">
+      <select class="to-currency currency-select big-title-select"></select>
+      <div class="result">—</div>
+    </div>
+    <div class="converter-card">
+      <select class="to-currency currency-select big-title-select"></select>
+      <div class="result">—</div>
+    </div>
+  </div>
 
-    </header>
+  <p id="update-time" class="update-time">Loading rates…</p>
+</main>
 
-    <main class="main-content">
-      <h2>All the Exchange Rates You Need for Your Travel in One Place!</h2>
-      <p>Save up to six real-time currency exchange rates.</p>
-    </main>
+</div>
 
-  </div> <!-- end page-wrapper -->
-
+<script src="currencies.js"></script>
+<script src="converter.js"></script>
 </body>
 </html>
