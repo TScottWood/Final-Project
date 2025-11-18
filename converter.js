@@ -1,7 +1,7 @@
 // converter.js
 let rates = {};
 
-const API_KEY = "acfa0ddbd313a485e944690a"; // ← Replace this with your real key from exchangerate-api.com
+const API_KEY = "acfa0ddbd313a485e944690a"; // Your key
 const API_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest`;
 
 const PLACEHOLDER_TEXT = "Choose Your Country";
@@ -25,20 +25,22 @@ function populateSelects() {
   selects.forEach(sel => {
     if (sel.dataset.done) return;
 
-    // Add placeholder for the six big dropdowns
+    // Placeholder for the six big title dropdowns
     if (sel.classList.contains("big-title-select")) {
       const placeholder = new Option(PLACEHOLDER_TEXT, "", true, true);
       placeholder.disabled = true;
       placeholder.style.color = "#999";
       placeholder.style.fontStyle = "italic";
       sel.add(placeholder, 0);
-      sel.value = ""; // force placeholder
+      sel.value = "";
     }
 
     currencies.forEach(c => {
-      const opt = new Option(`${c.flag} ${c.code} — ${c.country} (${c.name})`, c.code);
+      // COUNTRY FIRST → typing now jumps to the country name!
+      const opt = new Option(`${c.country} — ${c.code} (${c.name}) ${c.flag}`, c.code);
       sel.add(opt);
     });
+
     sel.dataset.done = "true";
   });
 }

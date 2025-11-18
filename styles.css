@@ -37,7 +37,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: px;
   background: inherit;
   border-radius: 0 0 30px 30px;
 }
@@ -130,7 +130,7 @@ body {
 }
 
 .main-content h2 {
-  font-size: 28px;
+  font-size: 36px;
   color: #b33a2e;
   margin-bottom: 1rem;
 }
