@@ -97,7 +97,7 @@ body {
   padding: 12px 18px;
   text-decoration: none;
   color: #444;                        /* normal state: original dark gray */
-  font-weight: 500;
+  font-weight: 700;
   font-size: 24px;
   border-radius: 10px;
   background: transparent;
@@ -112,12 +112,12 @@ body {
 }
 
 .nav__link:hover {
-  background-color: rgba(242, 140, 40, 0.15);   /* subtle orange glow */
-  color: #F28C28;                     /* ← text turns orange on hover */
+  background-color: #ffffff;
+  color: #F28C28;               /* ← ONLY the text turns orange */
 }
 
 .nav__link:hover i {
-  color: #F28C28;                     /* ← icons turn orange on hover */
+  color: #777 !important;       /* ← Icons NEVER change color */
 }
 
 /* Main Content */
@@ -129,13 +129,13 @@ body {
 }
 
 .main-content h2 {
-  font-size: 36px;
+  font-size: 40px;
   color: #b33a2e;
   margin-bottom: 1rem;
 }
 
 .main-content p {
-  font-size: 24px;
+  font-size: 30px;
   color: #555;
 }
 
@@ -163,6 +163,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 /* NEW: Left box small, right box takes the rest of the space */
@@ -178,9 +179,9 @@ body {
 .global-amount label,
 .global-from label {
   font-weight: 600;
-  color: #333;
+  color: #0D98BA;
   margin-bottom: 0.7rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 #global-amount,
@@ -189,7 +190,7 @@ body {
   padding: 0 32px;
   font-size: 1.8rem;
   text-align: center;
-  border: 4px solid #39d619;
+  border: 4px solid #0D98BA;
   background: white;
   box-sizing: border-box;
   line-height: 68px;
@@ -210,7 +211,7 @@ body {
   text-align: center;
   font-size: 1.7rem;
   font-weight: 600;
-  color: #39d619;
+  color: #0D98BA;
   margin: 0.5rem 0 2.5rem;
 }
 
@@ -245,7 +246,7 @@ body {
   background: #f8fff8;
   padding: 2rem 1.5rem;
   box-shadow: 0 8px 30px rgba(0,0,0,0.09);
-  border: 1px solid #e0f5e0;
+  border: 4px solid #0D98Ba;
   text-align: center;
   transition: transform 0.2s;
 }
@@ -260,10 +261,10 @@ body {
   font-size: 1.4rem !important;
   font-weight: 600;
   border: none;
-  border-bottom: 4px solid #39d619;
+  border-bottom: 4px solid #0D98BA;
   border-radius: 14px 14px 0 0;
   background: white;
-  color: #222;
+  color: ##41BA0D;
   text-align: center;
   text-align-last: center;
   cursor: pointer;
@@ -313,5 +314,28 @@ body {
 *, *::before, *::after,
 input, select, textarea, button, a,
 [onclick], [role="button"], [tabindex] {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23000088" d="M4 4l20 12L4 28V4z"/></svg>') 4 4, auto !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32"><path fill="%23000088" d="M4 4l20 12L4 28V4z"/></svg>') 4 4, auto !important;
 }
+
+.centered-bullets {
+  font-size: 24px;
+  color: #555;
+  position: relative;
+  padding: 0 1em;               /* gives space left and right for the bullets */
+  line-height: 1.8;             /* ← this gives the text more height so bullets center properly */
+  display: inline-block;        /* ← prevents the paragraph from going full-width unnecessarily */
+}
+
+.centered-bullets::before,
+.centered-bullets::after {
+  content: "•";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);  /* ← vertically centers the bullets perfectly */
+  color: #0D98BA;
+  font-weight: bold;
+  font-size: 1.6em;             /* makes the bullets a bit larger and more visible */
+}
+
+.centered-bullets::before { left: 0; }
+.centered-bullets::after  { right: 0; }
