@@ -9,7 +9,6 @@
 </head>
 <body>
 <div class="page-wrapper">
-
 <header class="header-row">
   <div class="logo-image-section">
     <img src="./Assets/dreamstime_l_14051356.jpg" class="logo" alt="The Great Exchange Logo">
@@ -22,6 +21,11 @@
     </div>
   </div>
   <div class="nav-section">
+    <!-- Hamburger button – visible only on mobile -->
+    <button class="hamburger" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  
     <ul class="nav__links">
       <li><a href="#" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="#" class="nav__link"><i class="fas fa-phone"></i> About</a></li>
@@ -88,7 +92,11 @@
   Art Credit: ID 14051356 © Xxzoexx | Dreamstime.com
 </footer>
 
-<script src="currencies.js"></script>
-<script src="converter.js"></script>
+<script>
+  document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.nav__links').classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>

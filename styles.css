@@ -26,19 +26,9 @@ body {
   align-items: stretch;
   min-height: 220px;
   width: 100%;
-  background: rgba(13, 152, 186, 0.1);   /* #0D98BA at 10% opacity */
+  background: rgba(13, 152, 186, 0.1);
   border-bottom: 3px solid rgba(13, 152, 186, 0.2);
   position: relative;
-}
-
-.header-row::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: px;
-  background: inherit;
 }
 
 .logo-image-section {
@@ -70,8 +60,8 @@ body {
   text-align: left;
 }
 
-.word-the { font-size: 48px; font-weight: 700; color: #222; }
-.word-great { font-size: 78px; font-weight: 700; color: #222; }
+.word-the      { font-size: 48px; font-weight: 700; color: #222; }
+.word-great    { font-size: 78px; font-weight: 700; color: #222; }
 .word-exchange { font-size: 72px; font-weight: 700; color: #0D98BA; }
 
 .nav-section {
@@ -80,6 +70,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* Hamburger button – hidden on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #0D98BA;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .nav__links {
@@ -88,6 +90,7 @@ body {
   gap: 20px;
   width: 100%;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .nav__link {
@@ -96,7 +99,7 @@ body {
   gap: 10px;
   padding: 12px 18px;
   text-decoration: none;
-  color: #444;                        /* normal state: original dark gray */
+  color: #444;
   font-weight: 700;
   font-size: 24px;
   border-radius: 10px;
@@ -107,20 +110,19 @@ body {
 
 .nav__link i {
   width: 20px;
-  color: #777;                        /* normal state: original icon color */
-  transition: color 0.3s ease;
+  color: #777;
 }
 
 .nav__link:hover {
   background-color: #ffffff;
-  color: #F28C28;               /* ← ONLY the text turns orange */
+  color: #F28C28;
 }
 
 .nav__link:hover i {
-  color: #777 !important;       /* ← Icons NEVER change color */
+  color: #777 !important;
 }
 
-/* Main Content */
+/* ====================== MAIN CONTENT ====================== */
 .main-content {
   padding: 3rem 2rem;
   max-width: 1200px;
@@ -134,21 +136,13 @@ body {
   margin-bottom: 1rem;
 }
 
-.main-content p {
-  font-size: 30px;
-  color: #555;
-}
-
-/* ====================== CURRENCY CONVERTER ====================== */
-
-/* Full-width container matching the header exactly */
+/* ====================== TOP CONTROLS ====================== */
 .top-controls-fullwidth {
   max-width: 1400px;
   margin: 3rem auto 0;
   padding: 0 20px;
 }
 
-/* Two boxes fill the full width, side-by-side */
 .global-controls {
   display: flex;
   justify-content: space-between;
@@ -166,15 +160,8 @@ body {
   margin-bottom: 2rem;
 }
 
-/* NEW: Left box small, right box takes the rest of the space */
-.global-amount {
-  flex: 0 1 200px;   /* doesn't grow much, max ~200px */
-}
-
-.global-from {
-  flex: 1;           /* grows to fill all remaining space */
-  max-width: none;   /* removes any previous limit */
-}
+.global-amount  { flex: 0 1 200px; }
+.global-from    { flex: 1; max-width: none; }
 
 .global-amount label,
 .global-from label {
@@ -192,14 +179,13 @@ body {
   text-align: center;
   border: 4px solid #0D98BA;
   background: white;
-  box-sizing: border-box;
   line-height: 68px;
   width: 100%;
 }
 
 .global-select {
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24  24' fill='%2339d619'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2339d619'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 20px center;
   background-size: 22px;
@@ -215,45 +201,27 @@ body {
   margin: 0.5rem 0 2.5rem;
 }
 
-/* Make the 3-column grid exactly match the header / page-wrapper width */
+/* ====================== CONVERTERS GRID ====================== */
 .converters-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  margin: 2rem auto 0;        /* centers it */
-  max-width: 1400px;          /* ← same as .page-wrapper */
-  padding: 0 20px;            /* ← same left/right padding as header */
+  margin: 2rem auto 0;
+  max-width: 1400px;
+  padding: 0 20px;
   width: 100%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 1000px) {
-  .converters-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 720px) {
-  .converters-grid { grid-template-columns: 1fr; }
-  .global-controls {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .global-amount, .global-from {
-    max-width: 100%;
-  }
 }
 
 .converter-card {
   background: #f8fff8;
   padding: 2rem 1.5rem;
   box-shadow: 0 8px 30px rgba(0,0,0,0.09);
-  border: 4px solid #0D98Ba;
+  border: 4px solid #0D98BA;
   text-align: center;
   transition: transform 0.2s;
 }
 
-.converter-card:hover {
-  transform: translateY(-6px);
-}
+.converter-card:hover { transform: translateY(-6px); }
 
 .big-title-select {
   width: 100%;
@@ -264,7 +232,7 @@ body {
   border-bottom: 4px solid #0D98BA;
   border-radius: 14px 14px 0 0;
   background: white;
-  color: ##41BA0D;
+  color: #222;
   text-align: center;
   text-align-last: center;
   cursor: pointer;
@@ -287,43 +255,13 @@ body {
   font-size: 0.95rem;
 }
 
-/* ====================== RESPONSIVE HEADER ====================== */
-@media (max-width: 900px) {
-  .word-the { font-size: 42px; }
-  .word-great { font-size: 66px; }
-  .word-exchange { font-size: 54px; }
-}
-
-@media (max-width: 680px) {
-  .header-row { flex-direction: column; min-height: auto; }
-  .logo-image-section,
-  .logo-text-section,
-  .nav-section {
-    flex: 0 0 auto;
-    width: 100%;
-    min-height: 140px;
-    padding: 1.5rem;
-  }
-  .nav-section { order: -1; border-bottom: 1px solid #e0e0e0; }
-  .logo { max-height: 120px; }
-  .logo-text-section { padding: 1.5rem; justify-content: center; }
-  .logo-text { text-align: center; }
-}
-
-/* ===== GUARANTEED DARK BLUE ARROW CURSOR ===== */
-*, *::before, *::after,
-input, select, textarea, button, a,
-[onclick], [role="button"], [tabindex] {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32"><path fill="%23000088" d="M4 4l20 12L4 28V4z"/></svg>') 4 4, auto !important;
-}
-
 .centered-bullets {
   font-size: 24px;
   color: #555;
   position: relative;
-  padding: 0 1em;               /* gives space left and right for the bullets */
-  line-height: 1.8;             /* ← this gives the text more height so bullets center properly */
-  display: inline-block;        /* ← prevents the paragraph from going full-width unnecessarily */
+  padding: 0 3em;
+  line-height: 1.8;
+  display: inline-block;
 }
 
 .centered-bullets::before,
@@ -331,15 +269,16 @@ input, select, textarea, button, a,
   content: "•";
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);  /* ← vertically centers the bullets perfectly */
+  transform: translateY(-50%);
   color: #0D98BA;
   font-weight: bold;
-  font-size: 1.6em;             /* makes the bullets a bit larger and more visible */
+  font-size: 1.6em;
 }
 
 .centered-bullets::before { left: 0; }
 .centered-bullets::after  { right: 0; }
 
+/* ====================== ART CREDIT (included!) ====================== */
 .art-credit {
   text-align: center;
   font-size: 0.8rem;
@@ -348,3 +287,106 @@ input, select, textarea, button, a,
   padding-top: 2rem;
   border-top: 1px solid #eee;
 }
+
+/* ====================== RESPONSIVE + HAMBURGER MENU ====================== */
+@media (max-width: 1000px) {
+  .converters-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 780px) {
+  .header-row {
+    flex-direction: column;
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .logo-image-section,
+  .logo-text-section,
+  .nav-section {
+    flex: none;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .logo { max-height: 100px; }
+
+  .word-the      { font-size: 36px; }
+  .word-great    { font-size: 56px; }
+  .word-exchange { font-size: 48px; }
+
+  /* Hamburger menu */
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+
+  .nav__links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(13, 152, 186, 0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 999;
+  }
+
+  .nav__links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav__link {
+    font-size: 2rem;
+    color: white;
+    background: transparent;
+  }
+
+  .nav__link i { color: white !important; }
+  .nav__link:hover { color: #F28C28; }
+}
+
+@media (max-width: 720px) {
+  .converters-grid { grid-template-columns: 1fr; }
+  .global-controls { flex-direction: column; gap: 2rem; }
+  .global-amount, .global-from { max-width: 100%; }
+
+  #global-amount,
+  .global-select {
+    height: 60px;
+    font-size: 1.5rem;
+    padding: 0 20px;
+  }
+
+  .global-amount label,
+  .global-from label { font-size: 1.5rem; }
+
+  .global-label { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .main-content h2 { font-size: 28px; }
+  .centered-bullets { font-size: 18px; }
+  .centered-bullets::before,
+  .centered-bullets::after { font-size: 1.4em; }
+}
+
+/* ===== GUARANTEED DARK-BLUE ARROW CURSOR (fixed & working) ===== */
+*, *::before, *::after,
+input, select, textarea, button, a,
+[onclick], [role="button"], [tabindex] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23000088" d="M4 4l20 12L4 28V4z"/></svg>') 4 4, auto !important;
+}
+
