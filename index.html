@@ -1,104 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Great Exchange</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Great Exchange</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="page-wrapper">
-<header class="header-row">
-  <div class="logo-image-section">
-    <img src="./Assets/dreamstime_l_14051356.jpg" class="logo" alt="The Great Exchange Logo">
-  </div>
-  <div class="logo-text-section">
-    <div class="logo-text">
-      <span class="word-the">The</span>
-      <span class="word-great">Great</span>
-      <span class="word-exchange">Exchange</span>
-    </div>
-  </div>
-  <div class="nav-section">
-    <!-- Hamburger button – visible only on mobile -->
-    <button class="hamburger" aria-label="Open menu">
-      <i class="fas fa-bars"></i>
-    </button>
-  
-    <ul class="nav__links">
-      <li><a href="#" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#" class="nav__link"><i class="fas fa-phone"></i> About</a></li>
-      <li><a href="#" class="nav__link"><i class="fas fa-info-circle"></i> Contact</a></li>
-    </ul>
-  </div>
-</header>
 
-<main class="main-content">
-  <h2>All the Exchange Rates You Need for Your Travel in One Place!</h2>
-  <p class="centered-bullets">Search up to six real-time currency exchange rates</p>
+  <div class="page-wrapper">
 
-  <!-- FULL-WIDTH TOP CONTROLS – matches header exactly -->
-  <div class="top-controls-fullwidth">
-    <div class="global-controls">
-      <div class="global-amount">
-        <label for="global-amount">Amount</label>
-        <input type="number" id="global-amount" class="amount" value="1" min="0" step="any">
+    <header class="header-row">
+      <div class="logo-image-section">
+        <img src="./Assets/dreamstime_l_14051356.jpg" class="logo" alt="The Great Exchange Logo">
       </div>
-      <div class="global-from">
-        <label for="global-from">From</label>
-        <select id="global-from" class="currency-select global-select"></select>
+      <div class="logo-text-section">
+        <div class="logo-text">
+          <span class="word-the">The</span>
+          <span class="word-great">Great</span>
+          <span class="word-exchange">Exchange</span>
+        </div>
       </div>
-    </div>
-    <p class="global-label">I want to buy →</p>
+      <div class="nav-section">
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav__links">
+          <li><a href="#" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" class="nav__link"><i class="fas fa-phone"></i> About</a></li>
+          <li><a href="#" class="nav__link"><i class="fas fa-info-circle"></i> Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <h2>All the Exchange Rates You Need for Your Travel in One Place!</h2>
+      <p class="centered-bullets">Search up to six real-time currency exchange rates</p>
+
+      <div class="global-controls">
+        <div class="global-amount">
+          <label for="global-amount">Amount</label>
+          <input type="number" id="global-amount" class="amount" value="1" min="0" step="any">
+        </div>
+        <div class="global-from">
+          <label for="global-from">From</label>
+          <select id="global-from" class="currency-select global-select"></select>
+        </div>
+      </div>
+      <p class="global-label">I want to buy →</p>
+
+      <!-- The six currency cards -->
+      <div class="converters-grid">
+        <div class="converter-card">
+          <select class="to-currency currency-select big-title-select"></select>
+          <div class="result">—</div>
+        </div>
+        <div class="converter-card">
+          <select class="to-currency currency-select big-title-select"></select>
+          <div class="result">—</div>
+        </div>
+        <div class="converter-card">
+          <select class="to-currency currency-select big-title-select"></select>
+          <div class="result">—</div>
+        </div>
+        <div class="converter-card">
+          <select class="to-currency currency-select big-title-select"></select>
+          <div class="result">—</div>
+        </div>
+        <div class="converter-card">
+          <select class="to-currency currency-select big-title-select"></select>
+          <div class="result">—</div>
+        </div>
+        <div class="converter-card">
+          <select class="to-currency currency-select big-title-select"></select>
+          <div class="result">—</div>
+        </div>
+      </div>
+
+      <p id="update-time" class="update-time">Loading rates…</p>
+    </main>
+
   </div>
 
-  <div class="converters-grid">
-    <div class="converter-card">
-      <select class="to-currency currency-select big-title-select"></select>
-      <div class="result">—</div>
+  <footer class="footer">
+    <div class="page-wrapper">
+      <p class="art-credit">Art Credit: ID 14051356 © Xxzoexx | Dreamstime.com | © 2025 Scott Wood. All rights reserved.</p>
     </div>
-    <div class="converter-card">
-      <select class="to-currency currency-select big-title-select"></select>
-      <div class="result">—</div>
-    </div>
-    <div class="converter-card">
-      <select class="to-currency currency-select big-title-select"></select>
-      <div class="result">—</div>
-    </div>
-    <div class="converter-card">
-      <select class="to-currency currency-select big-title-select"></select>
-      <div class="result">—</div>
-    </div>
-    <div class="converter-card">
-      <select class="to-currency currency-select big-title-select"></select>
-      <div class="result">—</div>
-    </div>
-    <div class="converter-card">
-      <select class="to-currency currency-select big-title-select"></select>
-      <div class="result">—</div>
-    </div>
-  </div>
+  </footer>
 
-  <p id="update-time" class="update-time">Loading rates…</p>
-</main>
-
-</div>
-
-<script src="currencies.js"></script>
-<script src="converter.js"></script>
-
-<footer class="footer">
-  <p class="art-credit">
-    Art Credit: ID 14051356 © Xxzoexx | Dreamstime.com | © 2025 Scott Wood. All rights reserved.
-  </p>
-</footer>
-
-<script>
-  document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('.nav__links').classList.toggle('active');
-  });
-</script>
-
+  <script src="currencies.js"></script>
+  <script src="converter.js"></script>
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

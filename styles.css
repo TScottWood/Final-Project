@@ -63,9 +63,23 @@ body {
   text-align: left;
 }
 
-.word-the      { font-size: 48px; font-weight: 700; color: #222; }
-.word-great    { font-size: 78px; font-weight: 700; color: #222; }
-.word-exchange { font-size: 72px; font-weight: 700; color: #0D98BA; }
+.word-the { 
+  font-size: 48px; 
+  font-weight: 700; 
+  color: #222; 
+}
+
+.word-great { 
+  font-size: 78px; 
+  font-weight: 700; 
+  color: #222; 
+}
+
+.word-exchange { 
+  font-size: 72px; 
+  font-weight: 700; 
+  color: #0D98BA; 
+}
 
 .nav-section {
   flex: 0 0 auto;
@@ -107,9 +121,19 @@ body {
   transition: all 0.3s ease;
 }
 
-.nav__link i { width: 20px; color: #777; }
-.nav__link:hover { background-color: #ffffff; color: #F28C28; }
-.nav__link:hover i { color: #777 !important; }
+.nav__link i { 
+  width: 20px; 
+  color: #777; 
+}
+
+.nav__link:hover { 
+  background-color: #ffffff; 
+  color: #F28C28; 
+}
+
+.nav__link:hover i { 
+  color: #777 !important; 
+}
 
 /* ====================== MAIN CONTENT ====================== */
 .main-content {
@@ -119,14 +143,11 @@ body {
   text-align: center;
 }
 
-.main-content h2 { font-size: 40px; color: #b33a2e; margin-bottom: 1rem; }
+.main-content h2 { 
+  font-size: 40px; 
+  color: #b33a2e; 
+  margin-bottom: 1rem; }
 
-/* ====================== TOP CONTROLS – PERFECT FROM BOX ====================== */
-.top-controls-fullwidth {
-  max-width: 1400px;
-  margin: 3rem auto 0;
-  padding: 0 20px;
-}
 
 .global-controls {
   display: flex;
@@ -150,23 +171,35 @@ body {
 }
 
 /* LARGE SCREENS (>800px) – Amount tiny, From greedy + wrap when needed */
-@media (min-width: 801px) {
+/* 1. FIX THE MEDIA QUERY — change ONE word */
+@media (min-width: 800px) {
   .global-controls {
     flex-wrap: nowrap;
-    align-items: stretch;     /* same height */
+    align-items: flex-end;   /* ← CHANGE "stretch" → "flex-end" */
   }
-
+  /* everything else inside stays exactly the same */
   .global-amount {
     flex: 0 0 auto;
     width: auto;
     min-width: 160px;
     max-width: 220px;
   }
-
   .global-from {
     flex: 1 1 500px;
     max-width: none;
   }
+  /* ... rest of your large-screen rules ... */
+}
+
+/* 2. Add this one line anywhere (fixes the From box growing on small screens) */
+.global-from {
+  align-self: stretch;   /* ← forces the From box to grow when stacked */
+}
+
+/* 3. Make sure your custom cursor works on the dropdown too */
+.global-select {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="%23F28C28" d="M173.3 66.5C181.4 62.4 191.2 63.3 198.4 68.8L518.4 308.7C526.7 314.9 530 325.7 526.8 335.5C523.6 345.3 514.4 351.9 504 351.9L351.7 351.9L440.6 529.6C448.5 545.4 442.1 564.6 426.3 572.5C410.5 580.4 391.3 574 383.4 558.2L294.5 380.5L203.2 502.3C197 510.6 186.2 513.9 176.4 510.7C166.6 507.5 160 498.3 160 488L160 88C160 78.9 165.1 70.6 173.3 66.5z"/></svg>') 180 70, auto !important;
+}
 
   /* From select: wrap only when text would be cut off */
   .global-select {
@@ -229,7 +262,7 @@ body {
   text-align: center;
   font-size: 1.7rem;
   font-weight: 600;
-  color: #0D98BA;
+  color: #333;
   margin: 0.5rem 0 2.5rem;
   width: 100%;
 }
@@ -245,32 +278,87 @@ body {
   width: 100%;
 }
 
-.converter-card { background: #f8fff8; padding: 2rem 1.5rem; box-shadow: 0 8px 30px rgba(0,0,0,0.09); border: 4px solid #0D98BA; text-align: center; transition: transform 0.2s; }
-.converter-card:hover { transform: translateY(-6px); }
+.converter-card { 
+  background: #f8fff8; 
+  padding: 2rem 1.5rem; 
+  box-shadow: 0 8px 30px rgba(0,0,0,0.09); 
+  border: 4px solid #0D98BA; 
+  text-align: center; 
+  transition: transform 0.2s; 
+}
 
-.big-title-select { width: 100%; padding: 1.3rem 1rem; font-size: 1.4rem !important; font-weight: 600; border: none; border-bottom: 4px solid #0D98BA; border-radius: 14px 14px 0 0; background: white; color: #222; text-align: center; text-align-last: center; cursor: pointer; }
 
-.converter-card .result { margin-top: 1.5rem; padding: 1.4rem; background: rgba(57, 214, 25, 0.18); border-radius: 0 0 14px 14px; font-size: 1.8rem; font-weight: 700; color: #222; }
+.converter-card:hover { 
+  transform: translateY(-6px); 
+}
 
-.update-time { text-align: center; color: #666; margin: 3rem 0 1rem; font-size: 0.95rem; }
+.big-title-select { 
+  width: 100%; 
+  padding: 1.3rem 1rem; 
+  font-size: 1.4rem !important; 
+  font-weight: 600; 
+  border: none; 
+  border-bottom: 4px solid #0D98BA; 
+  border-radius: 14px 14px 0 0; 
+  background: white; 
+  color: #222; 
+  text-align: center; 
+  text-align-last: center; 
+  cursor: pointer; 
+}
 
-.centered-bullets { font-size: 24px; color: #555; position: relative; padding: 0 3em; line-height: 1.8; display: inline-block; }
-.centered-bullets::before, .centered-bullets::after { content: "•"; position: absolute; top: 50%; transform: translateY(-50%); color: #0D98BA; font-weight: bold; font-size: 1.6em; }
-.centered-bullets::before { left: 0; }
-.centered-bullets::after  { right: 0; }
+.converter-card .result { 
+  margin-top: 1.5rem; 
+  padding: 1.4rem; 
+  background: rgba(57, 214, 25, 0.18); 
+  border-radius: 0 0 14px 14px; 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+  color: #222; 
+}
+
+.update-time { 
+  text-align: center; 
+  color: #666; 
+  margin: 3rem 0 1rem; 
+  font-size: 0.95rem; 
+}
+
+.centered-bullets {
+  font-size: 1.875rem;
+  color: #555;
+  line-height: 1.8;
+  display: flex;                /* ← NEW: makes everything line up perfectly */
+  align-items: center;          /* ← NEW: vertically centers the bullets with the text */
+  justify-content: center;      /* keeps the text itself centered */
+  gap: 1.5rem;                  /* space between bullets and text – adjust if you want them closer/farther */
+  padding-bottom: 3rem;         /* keeps your bottom spacing */
+  margin: 0 auto;               /* extra safety for centering */
+}
+
+.centered-bullets::before,
+.centered-bullets::after {
+  content: "•";
+  color: #0D98BA;
+  font-weight: bold;
+  font-size: 1.6em;
+  flex-shrink: 0;
+}
 
 .art-credit {
   text-align: center;
   font-size: 1rem;
   color: #888;
-  margin: 4rem 0 2rem;
+  margin: 4rem 0 2rem 4rem;
   padding-top: 2rem;
   border-top: 1px solid #eee;
 }
 
 /* ====================== RESPONSIVE ====================== */
 @media (min-width: 481px) {
-  .logo-text-section { padding-left: 3rem; }
+  .logo-text-section { 
+    padding-left: 3rem; 
+  }
 }
 
 @media (max-width: 682px) {
@@ -301,12 +389,29 @@ body {
   .hamburger { display: block; }
   .nav__links { display: none; }
   .nav__links.active {
-    display: flex; flex-direction: column; position: absolute; top: 100%; right: 0;
-    background: rgba(13, 152, 186, 0.98); width: 220px; padding: 1.5rem;
-    border-radius: 0 0 12px 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 999;
+    display: flex; 
+    flex-direction: column; 
+    position: absolute; 
+    top: 100%; 
+    right: 0;
+    background: rgba(13, 152, 186, 0.98); 
+    width: 220px; 
+    padding: 1.5rem;
+    border-radius: 0 0 12px 12px; box-shadow: 
+    0 10px 20px rgba(0,0,0,0.2); z-index: 999;
   }
-  .nav__links.active .nav__link { color: white; font-size: 1.4rem; justify-content: flex-start; }
-  .nav__links.active .nav__link i { color: white !important; }
+
+  .nav__links.active 
+  .nav__link { 
+    color: white; 
+    font-size: 1.4rem; 
+    justify-content: flex-start; 
+  }
+
+  .nav__links.active 
+  .nav__link i { 
+    color: white !important; 
+  }
 }
 
 /* Other responsive rules */
@@ -337,10 +442,13 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .converters-grid { grid-template-columns: repeat(2, 1fr); }
+  .converters-grid { 
+    grid-template-columns: 
+    repeat(2, 1fr); 
+  }
 }
 
-/* ===== FONT AWESOME ARROW CURSOR IN YOUR ORANGE #F28C28 ===== */
+/* ===== FONT AWESOME ARROW CURSOR ===== */
 *, *::before, *::after,
 input, select, textarea, button, a,
 [onclick], [role="button"], [tabindex] {
