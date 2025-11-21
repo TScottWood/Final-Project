@@ -91,7 +91,7 @@ document.addEventListener("change", e => {
 // ==================== STARTUP ====================
 document.addEventListener("DOMContentLoaded", () => {
   populateSelects();
-  document.getElementById("global-from").value = "USD";
+  document.getElementById("global-from").value = "";
   fetchRates("USD");                     // Initial load
 });
 
