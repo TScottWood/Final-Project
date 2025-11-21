@@ -317,11 +317,40 @@ body {
   color: #222; 
 }
 
-.update-time { 
-  text-align: center; 
-  color: #666; 
-  margin: 3rem 0 1rem; 
-  font-size: 0.95rem; 
+.update-time {
+  text-align: center;
+  color: #0D98BA;           /* your teal color so it matches the site */
+  margin: 3rem 0 1rem;
+  font-size: 1.5rem;          /* a little bigger */
+  font-weight: 600;         /* bolder */
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Or make it look “live” with a tiny pulsing dot */
+.refresh-note {
+  text-align: center;
+  color: #39d619;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0.5rem 0 2rem;
+}
+
+/* Bigger pulsing dot on the timestamp */
+.update-time::before {
+  content: "●";
+  color: #B33A2E;
+  font-size: 2.2rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  animation: pulse 1s infinite;
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0%   { opacity: 1;    transform: scale(1); }
+  50%  { opacity: 0.5;  transform: scale(1.15); }
+  100% { opacity: 1;    transform: scale(1); }
 }
 
 .centered-bullets {
