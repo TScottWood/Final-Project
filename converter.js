@@ -1,4 +1,5 @@
 // converter.js
+
 let rates = {};
 const API_KEY = "acfa0ddbd313a485e944690a";
 const API_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest`;
@@ -11,15 +12,16 @@ async function fetchRates(base = "USD") {
     if (data.result !== "success") throw new Error("API error");
 
     rates = data.conversion_rates;
-    updateTimeStamp();        // ← Show fresh date + time
-    updateAllResults();       // ← Update all six cards
+    updateTimeStamp();
+    updateAllResults();
   } catch (err) {
     document.querySelectorAll(".result").forEach(r => r.textContent = "Connection error");
     setTimeout(() => fetchRates(base), 5000);
   }
 }
 
-// New: Full date + time stamp
+/* The current date and time the rates were last updated */
+
 function updateTimeStamp() {
   const now = new Date();
   const formatted = now.toLocaleString('en-GB', {
@@ -31,7 +33,7 @@ function updateTimeStamp() {
     minute: '2-digit',
     second: '2-digit',
     hour12: false
-  }).replace(',', '');   // Removes the comma after the day
+  }).replace(',', '');
 
   document.getElementById("update-time").textContent = `Rates updated: ${formatted}`;
 }
@@ -76,7 +78,8 @@ function updateAllResults() {
   });
 }
 
-// ==================== EVENTS ====================
+// When the user changes something
+
 document.getElementById("global-amount")?.addEventListener("input", updateAllResults);
 
 document.getElementById("global-from")?.addEventListener("change", () => {
@@ -88,15 +91,15 @@ document.addEventListener("change", e => {
   if (e.target.classList.contains("to-currency")) updateAllResults();
 });
 
-// ==================== STARTUP ====================
+// This needs to run after the html is loaded
+
 document.addEventListener("DOMContentLoaded", () => {
   populateSelects();
   document.getElementById("global-from").value = "";
   fetchRates("USD");                     // Initial load
 });
 
-// ==================== AUTO-REFRESH ====================
-// Refreshes rates every 10 minutes using whatever base currency is currently selected
+// Refreshes rates every 10 minutes using whatever base currency is currently selected.  If none, defaults to USD.
 setInterval(() => {
   const base = document.getElementById("global-from").value || "USD";
   console.log("Auto-refreshing rates...");

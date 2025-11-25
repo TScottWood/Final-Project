@@ -1,4 +1,4 @@
-// currencies.js  ← Save this EXACT file (overwrite your old one)
+// currencies.js
 
 const currencies = [
     { code: "AED", name: "UAE Dirham", country: "United Arab Emirates" },
@@ -164,7 +164,8 @@ const currencies = [
     { code: "ZWL", name: "Zimbabwean Dollar", country: "Zimbabwe" }
   ];
   
-  // ★★★★★ THIS PART AUTOMATICALLY ADDS FLAGS — YOU DON'T HAVE TO TOUCH IT ★★★★★
+// Adding the flags to the array
+
   const countryToFlag = {
     "United Arab Emirates": "🇦🇪", "Afghanistan": "🇦🇫", "Albania": "🇦🇱", "Armenia": "🇦🇲",
     "Netherlands Antilles": "🇦🇼", "Angola": "🇦🇴", "Argentina": "🇦🇷", "Australia": "🇦🇺",
